@@ -1,3 +1,5 @@
+/*General classes*/
+
 article {
   border: 1px solid #f1f1f1;
   margin-top: 40px;
@@ -7,6 +9,8 @@ article:hover {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
 }
 
+
+/*Header classes*/
 
 header.post-head {
   float: left;
@@ -35,12 +39,17 @@ header.post-head {
   height: 70px;
 }
 
+
+/* Body CSS */
+
 div.post-body {
   clear: both;
   font-weight: 300;
   padding: 30px 15px;
 }
 
+
+/* Footer CSS */
 footer.post-foot {
   width: 100%;
   height: 45px;
@@ -63,8 +72,13 @@ img.icon {
 }
 
 div.icon-group {
+  display: none;
   padding-top: 10px;
   padding-right: 10px;
   float: right;
+}
+
+article:hover div.icon-group {
+  display: block;
 }
 
