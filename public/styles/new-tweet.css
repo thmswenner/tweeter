@@ -12,6 +12,10 @@ textarea {
   line-height: 40px;
 }
 
+.red {
+  color: red;
+}
+
 .new-tweet h2 {
   border-bottom: 1px solid #000;
 }
@@ -23,6 +27,11 @@ textarea {
 .btn {
   border: 1px solid #02a087;
   background-color: #02a087;
+  padding: 10px 20px;
+  color: white;
+}
+
+.btn:hover {
   padding: 10px 20px;
   color: white;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);

@@ -21,16 +21,26 @@ header.post-head {
 }
 
 .head-name {
+  color: rgba(0,0,0,0.6);
+  width: 50%;
   float: left;
   padding-left: 15px;
+}
 
+article:hover .head-name {
+  color: rgba(0,0,0,0.9);
 }
 
 .username {
-  float: right;
+  color: rgba(0,0,0,0.6);
+  /*float: right;*/
   font-weight: 300;
   text-align: right;
   padding-top: 10px;
+}
+
+article:hover .username {
+  color: rgba(0,0,0,0.9);
 }
 
 .profile-img {
@@ -59,14 +69,18 @@ footer.post-foot {
 }
 
 footer.post-foot p {
+  color: rgba(0,0,0,0.5);
   float: left;
   font-size: 13px;
   font-weight: 500;
-  color: lightgrey;
+}
+
+article:hover .post-foot p {
+  color: rgba(0,0,0,0.9);
 }
 
 img.icon {
-  padding: 2px;
+  padding: 4px;
   width: 25px;
   height: 25px;
 }
@@ -79,6 +93,6 @@ div.icon-group {
 }
 
 article:hover div.icon-group {
+  color: black;
   display: block;
 }
-

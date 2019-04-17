@@ -8,9 +8,10 @@ $(document).ready( function () {
     let counter = $(this).parent().find('.counter')
     counter.text(final);
     if (final >= 0) {
-      counter.css('color', 'black');
+      counter.removeClass('red');
     } else {
-      counter.css('color', 'red');
+      counter.addClass('red');
+      // counter.css('color', 'red');
     }
   });
 })
