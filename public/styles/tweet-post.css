@@ -22,7 +22,6 @@ header.post-head {
 
 .head-name {
   color: rgba(0,0,0,0.6);
-  width: 50%;
   float: left;
   padding-left: 15px;
 }
@@ -33,7 +32,6 @@ article:hover .head-name {
 
 .username {
   color: rgba(0,0,0,0.6);
-  /*float: right;*/
   font-weight: 300;
   text-align: right;
   padding-top: 10px;
