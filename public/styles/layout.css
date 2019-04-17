@@ -21,17 +21,12 @@ body {
   background-color: #eee;
 }
 
-nav {
-  background-color: #00a087;
-  height: 105px;
-  padding: 1em 2em 1em 2em;
-}
-
 main {
   width: 500px;
+  position: relative;
+  top: 105px;
   background-color: white;
   margin: 0 auto;
-  margin-top: 110px;
 }
 
 /*

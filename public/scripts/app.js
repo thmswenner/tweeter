@@ -1,42 +1,58 @@
 
 $(() => {
 
+
 $('form').on('submit', (event) =>  {
   event.preventDefault();
+  const textArea = $('textArea').val()
+  if (textArea === '' || textArea.length > 140) {
+    alert('Danger, Will Robinson')
+    return;
+  }
   const qstring = $('form').serialize();
-  $.post('/tweets', qstring)
+  $.post('/tweets', qstring, function(){
+    $('#countval').val('')
+    $('#tweet-contain').empty();
+    loadTweets()
+  });
 });
 
-function loadtweets () {
-  const tweets$.getJSON('/tweets');
+
+function loadTweets () {
+  $.get('/tweets', function (event) {
+    return renderTweets(event)
+  })
 }
 
-loadtweets()
 
-function rendertweets(tweets) {
+function renderTweets(tweets) {
   let output = []
   tweets.forEach(function (obj) {
     output.push(createTweetElement(obj))
   })
-  return output
+  $('#tweet-contain').append(output)
 }
+
+
 
 //Creates HTML Structure
 
-function createTweetElement(element) {
+function createTweetElement(tweet) {
+  const date = new Date(tweet.created_at)
+  const dateString = `Date: ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
   const output = $('<article>').append(
     $('<header>').addClass('post-head').append(
-      $('<img>').addClass('profile-img').attr('src', element.user.avatars.small),
-      $('<h2>').addClass('head-name').text(element.user.name),
-      $('<p>').addClass('username').text(element.user.handle)
+      $('<img>').addClass('profile-img').attr('src', tweet.user.avatars.small),
+      $('<h2>').addClass('head-name').text(tweet.user.name),
+      $('<p>').addClass('username').text(tweet.user.handle)
     ),
 
     $('<div>').addClass('post-body').append(
-      $('<p>').text(element.content.text)
+      $('<p>').text(tweet.content.text)
     ),
 
     $('<footer>').addClass('post-foot').append(
-      $('<p>').text('Date'),
+      $('<p>').text(dateString),
       $('<div>').addClass('icon-group').append(
         $('<img>').addClass('icon').attr('src', '/images/flag.png'),
         $('<img>').addClass('icon').attr('src', '/images/share.png'),
@@ -47,8 +63,12 @@ function createTweetElement(element) {
   return output
 }
 
-  // const $tweet = createTweetElement(tweetData);
-  const $tweet = rendertweets(data);
+loadTweets()
 
-  $('.container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+
+  $('.nav-btn').on('click', (event) => {
+    $('.new-tweet').slideToggle(400, function () {
+      $('textarea').select()
+    })
+  })
 })

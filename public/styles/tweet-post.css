@@ -53,6 +53,7 @@ article:hover .username {
 div.post-body {
   clear: both;
   font-weight: 300;
+  overflow: auto;
   padding: 30px 15px;
 }
 

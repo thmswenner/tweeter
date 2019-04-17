@@ -1,7 +1,17 @@
+nav {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  background-color: #00a087;
+  height: 105px;
+  padding: 1em 2em 1em 2em;
+}
+
+
 #nav-bar .header {
   font-size: 27px;
   line-height: 80px;
-  color: #e8fdff;
+  color: white;
   padding-left: 10px;
 }
 
@@ -9,4 +19,22 @@
   width: 80px;
   height: 80px;
   float: left;
+}
+
+.nav-btn {
+  float: right;
+  border: 2px solid white;
+  background-color: transparent;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: white;
+  margin-top: 15px;
+  padding: 10px 18px;
+}
+
+.nav-btn:hover {
+  float: right;
+  background-color: white;
+  letter-spacing: 1px;
+  color: #02a087;
 }
