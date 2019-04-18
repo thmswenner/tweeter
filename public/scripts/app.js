@@ -1,12 +1,17 @@
 
 $(() => {
 
+$('.error').hide()
 
-$('form').on('submit', (event) =>  {
+$('textarea').on('focus', event => {
+  $('.error').slideUp(400, () => {})
+})
+
+$('form').on('submit', event =>  {
   event.preventDefault();
   const textArea = $('textArea').val()
   if (textArea === '' || textArea.length > 140) {
-    alert('Danger, Will Robinson')
+    $('.error').slideDown(400, function() {})
     return;
   }
   const qstring = $('form').serialize();
@@ -71,4 +76,5 @@ loadTweets()
       $('textarea').select()
     })
   })
+
 })
