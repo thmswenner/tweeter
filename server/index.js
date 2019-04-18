@@ -21,21 +21,6 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   }
 
 
-  function getTweets(callback) {
-    db.collection("tweets").find().toArray(callback);
-  }
-
-
-  getTweets((err, tweets) => {
-    if (err) throw err;
-
-    for (let tweet of tweets) {
-    }
-
-  });
-
-
-
   const DataHelpers = require("./lib/data-helpers.js")(db);
 
   // The `tweets-routes` module works similarly: we pass it the `DataHelpers` object
