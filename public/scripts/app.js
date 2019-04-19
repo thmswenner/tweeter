@@ -1,6 +1,10 @@
 
 $(() => {
 
+
+// Event listener for the submit
+// also includes error message ----------------------------------------------------------------------
+
 $('.error').hide()
 
 $('textarea').on('focus', event => {
@@ -24,7 +28,7 @@ $('form').on('submit', event =>  {
 
 
 
-// Creates HTML Structure ----------------------------------------------------------------------
+// Gets the tweets and starts the callback ----------------------------------------------------------------------
 
 function loadTweets () {
   $.get('/tweets', function (event) {
@@ -34,7 +38,8 @@ function loadTweets () {
 
 
 
-// Creates HTML Structure ----------------------------------------------------------------------
+// Takes in an array of tweets and loops through them
+// then sends them to create tweet element to render onto page ----------------------------------------------------------------------
 
 function renderTweets(tweets) {
   let output = []
