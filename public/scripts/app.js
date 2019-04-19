@@ -23,12 +23,18 @@ $('form').on('submit', event =>  {
 });
 
 
+
+// Creates HTML Structure ----------------------------------------------------------------------
+
 function loadTweets () {
   $.get('/tweets', function (event) {
     return renderTweets(event)
   })
 }
 
+
+
+// Creates HTML Structure ----------------------------------------------------------------------
 
 function renderTweets(tweets) {
   let output = []
@@ -40,11 +46,10 @@ function renderTweets(tweets) {
 
 
 
-//Creates HTML Structure
+// Creates HTML Structure ----------------------------------------------------------------------
 
 function createTweetElement(tweet) {
-  const date = new Date(tweet.created_at)
-  const dateString = `Date: ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+  const postTime = moment(tweet.created_at).fromNow()
   const output = $('<article>').append(
     $('<header>').addClass('post-head').append(
       $('<img>').addClass('profile-img').attr('src', tweet.user.avatars.small),
@@ -57,7 +62,7 @@ function createTweetElement(tweet) {
     ),
 
     $('<footer>').addClass('post-foot').append(
-      $('<p>').text(dateString),
+      $('<p>').text(postTime),
       $('<div>').addClass('icon-group').append(
         $('<img>').addClass('icon').attr('src', '/images/flag.png'),
         $('<img>').addClass('icon').attr('src', '/images/share.png'),
@@ -69,12 +74,5 @@ function createTweetElement(tweet) {
 }
 
 loadTweets()
-
-
-  // $('.nav-btn').on('click', (event) => {
-  //   $('.new-tweet').slideToggle(400, function () {
-  //     $('textarea').select()
-  //   })
-  // })
 
 })

@@ -6,4 +6,4 @@ $('.nav-btn').on('click', (event) => {
   })
 })
 
-}
+})
